@@ -1,0 +1,31 @@
+obstacle_range: 3.0
+raytrace_range: 5.0
+
+# These parameters set thresholds on obstacle information put into the costmap. The "obstacle_range" parameter determines the maximum range sensor reading that will result in an obstacle being put into the costmap. Here, we have it set at 2.5 meters, which means that the robot will only update its map with information about obstacles that are within 2.5 meters of the base. The "raytrace_range" parameter determines the range to which we will raytrace freespace given a sensor reading. Setting it to 3.0 meters as we have above means that the robot will attempt to clear out space in front of it up to 3.0 meters away given a sensor reading.
+
+footprint: [[0.23, 0.23], [0.23, -0.23], [-0.23,-0.23], [-0.23, 0.23]]
+#robot_radius: ir_of_robot
+
+# turn voxel layer on and uncomment voxel plugin to remember all obstacles the camera picked up.
+# suffers from invalid readings of the camera.
+plugins:
+    - {name: staticmap,       type: "costmap_2d::StaticLayer"} 
+    - {name: obstacles,       type: "costmap_2d::ObstacleLayer"}
+    #- {name: voxel, type: "costmap_2d::VoxelLayer"}
+    - {name: inflation,        type: "costmap_2d::InflationLayer"}
+
+## Obstacle Layer
+obstacles: 
+   observation_sources: scan voxel_grid/output
+   scan: {sensor_frame: laser, data_type: LaserScan, topic: scan, marking: true, clearing: true}
+   voxel_grid/output: {sensor_frame: camera_link, data_type: PointCloud2, topic: voxel_grid/output, marking: true, clearing: true}
+
+#voxel:
+#   observation_sources: voxel_grid/output
+#   voxel_grid/output: {sensor_frame: camera_link, data_type: PointCloud2, topic: voxel_grid/output, marking: true, clearing: true}
+
+## Inflation Layer
+inflation:
+   enabled: true
+   inflation_radius: 1.0 # default 0.55
+   cost_scaling_factor: 10 # default 10

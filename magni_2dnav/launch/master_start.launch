@@ -1,0 +1,18 @@
+<launch>
+
+
+ <include file="$(find magni_2dnav)/launch/magni_configuration.launch"/>
+ <include file="$(find magni_2dnav)/launch/pose_tracker.launch"/>
+
+ <!-- <include file="$(find magni_2dnav)/launch/teb_move_base.launch"/> -->
+ <node pkg="timed_roslaunch" type="timed_roslaunch.sh"
+    args="5.0 magni_2dnav teb_move_base.launch"
+    name="timed_roslaunch" output="screen" />
+
+
+
+ <!-- <node name="amcl_pose_tracking" pkg="magni_2dnav" type="amcl_pose_tracking.py" output="screen"/>
+ -->
+
+</launch> 
+
