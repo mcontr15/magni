@@ -1,6 +1,5 @@
 <launch>
-
- <node name="amcl_pose_tracking" pkg="magni_2dnav" type="amcl_pose_tracking.py" cwd="node"  output="screen"/>
-
+ <node name="startupPoseTracking" pkg="magni_2dnav" type="startupPoseTracking.py" cwd="node"  output="screen"/>
+ <node name="amcl_pose_tracking_bag" pkg="magni_2dnav" type="amcl_pose_tracking_bag.py" cwd="node"  output="screen"/>
 </launch> 
 

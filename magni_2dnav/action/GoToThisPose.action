@@ -1,0 +1,8 @@
+# define the goal
+geometry_msgs/PoseStamped targetPose
+---
+# define the result
+geometry_msgs/PoseStamped finalPose
+---
+# define feedback
+geometry_msgs/PoseStamped currentPose

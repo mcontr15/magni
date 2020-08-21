@@ -1,9 +1,9 @@
 <launch>
 
     <!-- <group> -->
-       <machine name="johnny_red" address="johnny_red.local" user="ubuntu" password="ubuntu" env-loader="/etc/ubiquity/env.sh"/>
+       <machine name="johnny_boy" address="10.0.0.237" user="ubuntu" password="ubuntu" env-loader="/opt/ros/kinetic/env.sh"/>
        <!-- <include file="~/Ubiquity-Pi/src/sanitation_control/launch/stop_and_spray.launch" /> -->
-       <node machine="johnny_red" name="activate_sprayer" pkg="sanitation_control" type="activate_sprayer.py" />
+       <node machine="johnny_boy" name="activate_sprayer" pkg="sanitation_control" type="activate_sprayer.py" />
 
     <!-- </group> -->
     
