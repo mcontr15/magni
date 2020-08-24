@@ -9,9 +9,12 @@ from geometry_msgs.msg import PoseWithCovarianceStamped
 import rosbag
 
 global sentFlag
+global pub
+
 # send initial pose once we have from the topic we want
 
 def sendInitialPose():
+    global pub
     global sentFlag
     if sentFlag == False:
         bag = rosbag.Bag('amcl_last_pose.bag','r')
@@ -23,6 +26,7 @@ def sendInitialPose():
 
 def startup():
     global sentFlag
+    global pub
     sentFlag = False
     rospy.init_node('startupPoseTracking', anonymous=True)
     pub = rospy.Publisher('initialpose',PoseWithCovarianceStamped, queue_size=10)

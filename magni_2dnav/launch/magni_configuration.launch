@@ -1,30 +1,14 @@
 <launch>
 
-  <!-- DEFAULT STRUCTURE
-   <node pkg="sensor_node_pkg" type="sensor_node_type" name="sensor_node_name" output="screen">
-    <param name="sensor_param" value="param_value" />
- </node>
- <node pkg="odom_node_pkg" type="odom_node_type" name="odom_node" output="screen">
-    <param name="odom_param" value="param_value" />
- </node>
- <node pkg="transform_configuration_pkg" type="transform_configuration_type" name="transform_configuration_name" output="screen">
-    <param name="transform_configuration_param" value="param_value" />
- </node>
-  --> 
-
   <!-- DESCRIBE TRANSFORMATIONS -->
   <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" respawn="true"></node>
   <!-- <node pkg="tf" type="static_transform_publisher" name="laser" args="0 0 0.25 0 0 0 base_link laser 100" respawn="true"></node> -->
   <node pkg="tf" type="static_transform_publisher" name="camera_link" args="0.20 0 0.67 0 0 0 base_link camera_link 100" respawn = "true"></node>
-  <node pkg="tf" type="static_transform_publisher" name="laser_link" args="0.15 0 0.95 3.1415 0 0 base_link laser 100" respawn = "true"></node>
-
+  <!-- <node pkg="tf" type="static_transform_publisher" name="laser_link" args="0.15 0 0.95 3.1415 0 0 base_link laser 100" respawn = "true"></node> -->
 
   <!-- begin launch files for sensors -->
-
-  <include file="$(find rplidar_ros)/launch/rplidar.launch"/> 
+  <include file="$(find magni_2dnav)/launch/start_rplidar.launch"/> 
   <include file="$(find realsense2_camera)/launch/magni_pointcloud.launch"/>
   <include file="$(find magni_2dnav)/launch/voxel_filter.launch"/>
-<!--  <include file="$(find darknet_ros)/launch/magni_tiny_yolo.launch" />
-  -->
 
 </launch> 
