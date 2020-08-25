@@ -1,7 +1,8 @@
 <launch>
-       <arg name="tx2"   	default="tegra_boy"/>
+
+       <arg name="tx2"   	default="tegra_red"/>
 		<!-- Start remote machine of tegra_boy -->
-       <machine name="$(arg tx2)" address="10.0.0.17" user="nvidia" password="nvidia" env-loader="/opt/ros/melodic/env.sh"/> 
+       <machine name="$(arg tx2)" address="10.0.0.143" user="nvidia" password="nvidia" env-loader="/opt/ros/melodic/env.sh"/> 
 
 			<!-- LAUNCH REMOTE NODES -->
        <node machine="$(arg tx2)" name="startupSensors" pkg="magni_2dnav" type="startupSensors.py" output="screen"/>
