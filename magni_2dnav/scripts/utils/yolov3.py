@@ -109,7 +109,7 @@ class PostprocessYOLO(object):
 
         boxes_xywh, categories, confidences = self._process_yolo_output(
             outputs_reshaped, resolution_raw, conf_th)
-        print(boxes_xywh)
+        #print(boxes_xywh)
         if len(boxes_xywh) > 0:
             # convert (x, y, width, height) to (x1, y1, x2, y2)
             img_w, img_h = resolution_raw
