@@ -8,11 +8,13 @@ import rospy
 import time
 
 global cp
+global sub_flag
 global t_string
 global b_string
 global v_string
 global p_string 
 global s_string 
+
 
 class command_publisher:
 	def __init__(self):
@@ -36,20 +38,22 @@ cp = command_publisher()
 
 # should launch lasers, camera, and teb_move_base
 def launch_clicked():
-	lbl = Label(window)
+	lbl1 = Label(window)
 	cp.command = 'launch protocol'
 	cp.publish_command()
-	lbl.grid(column=2,row=6)
-	lbl.configure(text='Cleaning Cycle Initiated')
+	lbl1.grid(column=2,row=6)
+	lbl1.configure(text='Cleaning Cycle Initiated')
+
 
 # should launch the protocol file
 def gohome_clicked():
 	global cp
 	cp.command = 'go home'
 	cp.publish_command()
-	lbl = Label(window)
-	lbl.grid(column=2,row=10)
-	lbl.configure(text='Returning to Base Station')
+	lbl2 = Label(window)
+	lbl2.grid(column=2,row=10)	
+	lbl2.configure(text='Returning to Base Station')
+	
 
 def magniChecking(data):
 	#print "callback called"
@@ -58,7 +62,9 @@ def magniChecking(data):
 	global v_string
 	global p_string 
 	global s_string 
+	global sub_flag
 
+	sub_flag = True
 	t_string = "Time: " + data.runtime
 	b_string = data.batStatus
 	v_string = "Battery Voltage: " + str(data.voltage)[:5] + "V"
@@ -108,6 +114,7 @@ b_string = ''
 v_string = ''
 p_string = ''
 s_string = ''
+sub_flag = False
 
 
 #Current Time
@@ -158,11 +165,12 @@ while True:
 	sub = rospy.Subscriber('/battery_and_solution', bat_and_sol, magniChecking)
 	
 	#update variable string paramters
-	current_time.set(t_string)
-	battery_status.set(b_string)
-	voltage_level.set(v_string)
-	battery_percentage.set(p_string)
-	solution_status.set(s_string)
+	if(sub_flag):
+		current_time.set(t_string)
+		battery_status.set(b_string)
+		voltage_level.set(v_string)
+		battery_percentage.set(p_string)
+		solution_status.set(s_string)
 
 	#Update GUI 
 	window.update_idletasks()
