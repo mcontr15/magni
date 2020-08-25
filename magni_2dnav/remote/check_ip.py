@@ -15,3 +15,4 @@ while True:
 	else: 
 		print('Waiting for systems to boot up. . .')
 print('System is up.')
+f.close()
