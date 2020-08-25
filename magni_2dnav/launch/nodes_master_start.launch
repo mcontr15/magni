@@ -9,6 +9,5 @@
  <!-- this launch file only launches nodes anyways -->
  <!-- <include file="$(find magni_2dnav)/launch/pose_tracker.launch" /> -->
 
-
 </launch> 
 

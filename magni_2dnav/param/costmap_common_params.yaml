@@ -16,9 +16,13 @@ plugins:
 
 ## Obstacle Layer
 obstacles: 
-   observation_sources: scan voxel_grid/output
+   observation_sources: scan voxel_grid_back/output voxel_grid_front/output
    scan: {sensor_frame: laser, data_type: LaserScan, topic: scan, marking: true, clearing: true}
-   voxel_grid/output: {sensor_frame: camera_link, data_type: PointCloud2, topic: voxel_grid/output, marking: true, clearing: true}
+   voxel_grid_back/output: {sensor_frame: back_camera_link, data_type: PointCloud2, topic: voxel_grid_back/output, marking: true, clearing: true}
+   voxel_grid_front/output: {sensor_frame: front_camera_link, data_type: PointCloud2, topic: voxel_grid_front/output, marking: true, clearing: true}
+
+
+
 
 #voxel:
 #   observation_sources: voxel_grid/output

@@ -9,7 +9,7 @@ from nav_msgs.msg import Odometry
 global recFlag
 # send initial pose once we have from the topic we want
 
-def startSensors():
+def startSensors(data):
     global recFlag
     if recFlag == False:
         #print('ODOM HAS BEEN RECEIVED, GOOD TO START')
@@ -20,7 +20,7 @@ def startup():
     global recFlag
     recFlag = False
     rospy.init_node('startupSensors', anonymous=True)
-    sub = rospy.Subscriber('odom',Odometry,startSensors())
+    sub = rospy.Subscriber('odom',Odometry,startSensors)
     # idle around until we get data from the pointcloud
     rospy.spin()
 
