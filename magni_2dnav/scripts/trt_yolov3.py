@@ -22,6 +22,9 @@ from utils.visualization import BBoxVisualization
 import pyrealsense2 as rs
 import numpy as np
 
+import rospy
+from std_msgs.msg import Bool
+
 # Configure depth and color streams
 pipeline = rs.pipeline()
 config = rs.config()
@@ -49,7 +52,7 @@ def parse_args():
     return args
 
 
-def loop_and_detect(pipeline, trt_yolov3, conf_th, vis):
+def loop_and_detect(pub, pipeline, trt_yolov3, conf_th, vis):
     """Continuously capture images from camera and do object detection.
 
     # Arguments
@@ -58,12 +61,14 @@ def loop_and_detect(pipeline, trt_yolov3, conf_th, vis):
       conf_th: confidence/score threshold for object detection.
       vis: for visualization.
     """
-    full_scrn = False
+    #full_scrn = False
     fps = 0.0
     tic = time.time()
+    people = 4
+    people_status = False
     while True:
-        if cv2.getWindowProperty(WINDOW_NAME, 0) < 0:
-            break
+        #if cv2.getWindowProperty(WINDOW_NAME, 0) < 0:
+        #    break
         # Wait for a coherent pair of frames: depth and color
         frames = pipeline.wait_for_frames()
         # depth_frame = frames.get_depth_frame()
@@ -71,10 +76,15 @@ def loop_and_detect(pipeline, trt_yolov3, conf_th, vis):
         img = np.asanyarray(img.get_data())
         if img is not None:
             boxes, confs, clss = trt_yolov3.detect(img, conf_th)
-            # print(boxes)
-            img = vis.draw_bboxes(img, boxes, confs, clss)
-            img = show_fps(img, fps)
-            cv2.imshow(WINDOW_NAME, img)
+            if people in clss:
+                people_status = True 
+                pub.publish(people_status)
+            elif people not in clss:
+                people_status = False
+                pub.publish(people_status)
+            #img = vis.draw_bboxes(img, boxes, confs, clss)
+            #img = show_fps(img, fps)
+            #cv2.imshow(WINDOW_NAME, img)
             toc = time.time()
             curr_fps = 1.0 / (toc - tic)
             # calculate an exponentially decaying average of fps number
@@ -90,11 +100,9 @@ def loop_and_detect(pipeline, trt_yolov3, conf_th, vis):
 
 def main():
     args = parse_args()
-    if args.category_num <= 0:
-        raise SystemExit('ERROR: bad category_num (%d)!' % args.category_num)
-    if not os.path.isfile('%s.trt' % args.model):
-        raise SystemExit('ERROR: file (%s.trt) not found!' % args.model)
 
+    pub = rospy.Publisher('people_detection', Bool, queue_size=5)
+    rospy.init_node('people_detector', anonymous=True)
     # cam = Camera(args)
     # cam.open()
     # if not cam.is_opened:
@@ -115,10 +123,10 @@ def main():
     trt_yolov3 = TrtYOLOv3(args.model, (h, w), args.category_num)
 
     # cam.start()
-    open_window(WINDOW_NAME, args.image_width, args.image_height,
-                'Camera TensorRT YOLOv3 Demo')
+    #open_window(WINDOW_NAME, args.image_width, args.image_height,
+    #            'Camera TensorRT YOLOv3 Demo')
     vis = BBoxVisualization(cls_dict)
-    loop_and_detect(pipeline, trt_yolov3, conf_th=0.3, vis=vis)
+    loop_and_detect(pub, pipeline, trt_yolov3, conf_th=0.3, vis=vis)
 
     pipeline.stop()
     cv2.destroyAllWindows()
