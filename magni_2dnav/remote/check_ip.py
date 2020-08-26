@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import os
 
 nvidia = '10.0.0.17'; johnny_boy = '10.0.0.237'

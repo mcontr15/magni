@@ -18,7 +18,8 @@ global s_string
 
 class command_publisher:
 	def __init__(self):
-		rospy.init_node('command_publisher', anonymous=True)
+
+		rospy.init_node('StartupGUI', anonymous=True)
 		self.pub = rospy.Publisher('launch_cmds',String,queue_size=10)
 		print('initialized launch command_publisher')
 		self.safe_init_sleep_time = 2.0		
@@ -87,24 +88,31 @@ header_lbl.config(font=("Comic Sans MS", 60, 'bold'), bg="#0375be", fg="white")
 header_lbl.grid(column=0,row=1, columnspan = 10, rowspan = 4, padx = (20,50), pady=5)
 
 empty_lbl = Label(window,text = "  ")
-empty_lbl.grid(column=0,row=6, padx = 1, pady = 40, columnspan = 50)
+empty_lbl.grid(column=0,row=6, padx = 1, pady = 30, columnspan = 20)
+
 
 # create labels and buttons
 init_lbl = Label(window,text='Start Cleaning')
 init_lbl.config(font=("Comic Sans MS",20))
-init_lbl.grid(column=0,row=7, padx = (20,10))
+init_lbl.grid(column=1,row=7, padx = (0,0))
 
 btn = Button(window,text='Launch Sanitization Protocol',command=launch_clicked, bd=4, bg="orange",fg="white")
 btn.config(font=("Comic Sans MS",20))
-btn.grid(column=1,row=7, pady=5, padx = 5 )
+btn.grid(column=0,row=7, pady=5, padx = (10,5) )
+
 
 run_lbl = Label(window,text='Go Home')
 run_lbl.config(font=("Comic Sans MS",20))
-run_lbl.grid(column=0,row=10, padx = (20,10))
+run_lbl.grid(column=1,row=10, padx = (2,1))
 
 run_btn = Button(window,text='Return to Base Station',command=gohome_clicked,bd=4, bg="orange",fg="white")
 run_btn.config(font=("Comic Sans MS",20))
-run_btn.grid(column=1,row=10, pady = 5, padx =5)
+run_btn.grid(column=0,row=10, pady = 5, padx =(10,5))
+
+empty_lbl2 = Label(window,text = "  ")
+empty_lbl2.grid(column=0,row=11, padx = 1, pady = 20, columnspan = 20)
+
+
 
 #add Icuro Image to GUI
 img = PhotoImage(file = "/home/minotaur/catkin_ws/src/magni/magni_2dnav/remote/ICURO-logo-49-original.png") 
@@ -114,8 +122,8 @@ img1 = img.subsample(3, 3)
 Label(window, image= img1).grid(row = 0, column = 11, columnspan = 5, rowspan = 5, padx = (50,5), pady = (18,1))
 
 
-empty_lbl2 = Label(window,text = "  ")
-empty_lbl2.grid(column=1,row=14, padx = 1, pady = 110)
+empty_lbl3 = Label(window,text = "  ")
+empty_lbl3.grid(column=1,row=14, padx = 1, pady = 90)
 
 #Initialize processing strings 
 t_string = ''
