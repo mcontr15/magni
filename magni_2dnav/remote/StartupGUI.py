@@ -79,17 +79,18 @@ print('starting application')
 window = Tk()
 # create instance command_publisher class 
 
-window.geometry('480x480')
+window.geometry('1400x900')
 window.title("ICURObot Startup Application")
 
-header_lbl = Label(window, text = "ICURO Sanitation Robot", font = "Courier,40" )
-header_lbl.grid(column=0,row=0, columnspan = 2, rowspan = 4)
+header_lbl = Label(window, text = "Sanitization Robot UI")
+header_lbl.config(font=("Arial", 44, 'bold'), bg="#0375be", fg="white")
+header_lbl.grid(column=0,row=0, columnspan = 2, rowspan = 4, padx = 25)
 
 # create labels and buttons
 init_lbl = Label(window,text='Start Cleaning')
 init_lbl.grid(column=0,row=6)
 
-btn = Button(window,text='Launch Sanitation Protocol',command=launch_clicked, bd=4, bg="orange",fg="white")
+btn = Button(window,text='Launch Sanitization Protocol',command=launch_clicked, bd=4, bg="orange",fg="white")
 btn.grid(column=1,row=6, pady=5, padx = 5 )
 
 run_lbl = Label(window,text='Go Home')
@@ -99,10 +100,11 @@ run_btn = Button(window,text='Return to Base Station',command=gohome_clicked,bd=
 run_btn.grid(column=1,row=10, pady = 5, padx =5)
 
 #add Icuro Image to GUI
-img = PhotoImage(file = "/home/minotaur/catkin_ws/src/magni/magni_2dnav/icuro.png") 
-img1 = img.subsample(2, 2) 
+img = PhotoImage(file = "/home/minotaur/catkin_ws/src/magni/magni_2dnav/ICURO-logo-49-original.png") 
+img1 = img.subsample(3, 3) 
   
-Label(window, image= img1).grid(row = 0, column = 2, columnspan = 2, rowspan = 2, padx = 30, pady = 5)
+
+Label(window, image= img1).grid(row = 0, column = 2, columnspan = 30, rowspan = 10, padx = 20, pady = 5)
 
 
 time_lbl = Label(window,text = "  ")
