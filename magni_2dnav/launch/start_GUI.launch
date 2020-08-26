@@ -4,7 +4,7 @@
 		<!-- Start remote machine of johnny_red -->
        <machine name="minotaur" address="10.0.0.133" user="minotaur" password="thebull" env-loader="/opt/ros/kinetic/env.sh"/>\ 
     		<!-- Launch rplidarNode on the minotraur -->
-       <node machine="minotaur" name="Startup_GUI" pkg="magni_2dnav" type="Startup_GUI.py" output="screen" respawn="true"/>
+       <node machine="minotaur" name="StartupGUI" pkg="magni_2dnav" type="StartupGUI.py" output="screen" respawn="true"/>
     
 </launch> 
 
