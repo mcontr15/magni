@@ -79,36 +79,43 @@ print('starting application')
 window = Tk()
 # create instance command_publisher class 
 
-window.geometry('1400x900')
+window.geometry('1530x840')
 window.title("ICURObot Startup Application")
 
 header_lbl = Label(window, text = "Sanitization Robot UI")
-header_lbl.config(font=("Arial", 44, 'bold'), bg="#0375be", fg="white")
-header_lbl.grid(column=0,row=0, columnspan = 2, rowspan = 4, padx = 25)
+header_lbl.config(font=("Comic Sans MS", 60, 'bold'), bg="#0375be", fg="white")
+header_lbl.grid(column=0,row=1, columnspan = 10, rowspan = 4, padx = (20,50), pady=5)
+
+empty_lbl = Label(window,text = "  ")
+empty_lbl.grid(column=0,row=6, padx = 1, pady = 40, columnspan = 50)
 
 # create labels and buttons
 init_lbl = Label(window,text='Start Cleaning')
-init_lbl.grid(column=0,row=6)
+init_lbl.config(font=("Comic Sans MS",20))
+init_lbl.grid(column=0,row=7, padx = (20,10))
 
 btn = Button(window,text='Launch Sanitization Protocol',command=launch_clicked, bd=4, bg="orange",fg="white")
-btn.grid(column=1,row=6, pady=5, padx = 5 )
+btn.config(font=("Comic Sans MS",20))
+btn.grid(column=1,row=7, pady=5, padx = 5 )
 
 run_lbl = Label(window,text='Go Home')
-run_lbl.grid(column=0,row=10)
+run_lbl.config(font=("Comic Sans MS",20))
+run_lbl.grid(column=0,row=10, padx = (20,10))
 
 run_btn = Button(window,text='Return to Base Station',command=gohome_clicked,bd=4, bg="orange",fg="white")
+run_btn.config(font=("Comic Sans MS",20))
 run_btn.grid(column=1,row=10, pady = 5, padx =5)
 
 #add Icuro Image to GUI
-img = PhotoImage(file = "/home/minotaur/catkin_ws/src/magni/magni_2dnav/ICURO-logo-49-original.png") 
+img = PhotoImage(file = "/home/minotaur/catkin_ws/src/magni/magni_2dnav/remote/ICURO-logo-49-original.png") 
 img1 = img.subsample(3, 3) 
   
 
-Label(window, image= img1).grid(row = 0, column = 2, columnspan = 30, rowspan = 10, padx = 20, pady = 5)
+Label(window, image= img1).grid(row = 0, column = 11, columnspan = 5, rowspan = 5, padx = (50,5), pady = (18,1))
 
 
-time_lbl = Label(window,text = "  ")
-time_lbl.grid(column=1,row=14, padx = 1, pady = 40)
+empty_lbl2 = Label(window,text = "  ")
+empty_lbl2.grid(column=1,row=14, padx = 1, pady = 110)
 
 #Initialize processing strings 
 t_string = ''
@@ -122,7 +129,8 @@ sub_flag = False
 #Current Time
 current_time = StringVar()
 time_lbl = Label(window,textvariable=current_time)
-time_lbl.grid(column=1,row=15, padx = 1, pady = 5, sticky=S)
+time_lbl.config(font=("Comic Sans MS",20))
+time_lbl.grid(column=0,row=15, padx = 1, pady = 5, sticky=W)
 
 current_time.set("Time: ??? ")
 
@@ -130,7 +138,8 @@ current_time.set("Time: ??? ")
 # Battery Status
 battery_status = StringVar()
 battery_lbl = Label(window,textvariable=battery_status)
-battery_lbl.grid(column=1,row=16, padx = 1, pady = 5, sticky=S)
+battery_lbl.config(font=("Comic Sans MS",20))
+battery_lbl.grid(column=0,row=16, padx = 1, pady = 5, sticky=W)
 
 battery_status.set("Battery Status Unknown ")
 
@@ -138,21 +147,24 @@ battery_status.set("Battery Status Unknown ")
 # Battery Voltage
 voltage_level = StringVar()
 voltage_lbl = Label(window,textvariable=voltage_level)
-voltage_lbl.grid(column=1,row=17, padx = 1, pady = 5, sticky=S)
+voltage_lbl.config(font=("Comic Sans MS",20))
+voltage_lbl.grid(column=0,row=17, padx = 1, pady = 5, sticky=W)
 
 voltage_level.set("Battery Voltage: ??? V")
 
 # Battery Percentage 
 battery_percentage = StringVar()
 percentage_lbl = Label(window,textvariable=battery_percentage)
-percentage_lbl.grid(column=1,row=18, padx = 1, pady = 5, sticky=S)
+percentage_lbl.config(font=("Comic Sans MS",20))
+percentage_lbl.grid(column=0,row=18, padx = 1, pady = 5, sticky=W)
 
 battery_percentage.set("Battery Percentage: ??? %")
 
 # Solution Status
 solution_status = StringVar()
 solution_lbl = Label(window,textvariable=solution_status)
-solution_lbl.grid(column=1,row=19, padx = 1, pady = 5, sticky=S)
+solution_lbl.config(font=("Comic Sans MS",20))
+solution_lbl.grid(column=0,row=19, padx = 1, pady = 5, sticky=W)
 
 solution_status.set("Solution Status Unknown")
  
