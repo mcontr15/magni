@@ -23,6 +23,7 @@ def bag_write():
 	rospy.init_node('amcl_pose_tracking', anonymous=True)
 	rospy.sleep(safe_sleep_time)
 	rospy.Subscriber("amcl_pose",PoseWithCovarianceStamped,callback)
+        print('lets go for a spin!')
 	# error handle after rospy spin
 	rospy.spin()
 	print('Keyboard Interrupt Received')
@@ -31,6 +32,5 @@ def bag_write():
 
 if __name__ == '__main__':
         # sleep for a bit before writing anything to the file
-        rospy.sleep(5.0)
 	bag_write()
 		

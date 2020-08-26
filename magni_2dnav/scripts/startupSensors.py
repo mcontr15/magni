@@ -12,7 +12,7 @@ global recFlag
 def startSensors(data):
     global recFlag
     if recFlag == False:
-        #print('ODOM HAS BEEN RECEIVED, GOOD TO START')
+        print('ODOM HAS BEEN RECEIVED, GOOD TO START')
         os.system('roslaunch magni_2dnav magni_configuration.launch')
         recFlag = True
 
