@@ -1,0 +1,13 @@
+<launch>
+
+  <!-- Run Test Node -->
+  <node
+    name="people_detection"
+    pkg="magni_2dnav"
+    type="trt_yolov3.py"
+    output="screen"
+    args="017322070445"
+    cwd="node"
+  />
+</launch>
+
