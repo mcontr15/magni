@@ -25,11 +25,15 @@ import numpy as np
 import rospy
 from std_msgs.msg import Bool
 
+from cv_bridge import CvBridge
+bridge = CvBridge()
+
 def camera_config(args):
     front_sn = args[1] # johnny_boy front: 017322070445
     ctx = rs.context()
     devices = ctx.query_devices()
     for dev in devices:
+        print(dev.get_info(rs.camera_info.serial_number))
         if dev.get_info(rs.camera_info.serial_number) == front_sn:
             dev.hardware_reset()
             print('Resetting Hardware...')        

@@ -19,6 +19,7 @@ def sendInitialPose(data):
     if sentFlag == False:
         bag = rosbag.Bag('/home/nvidia/catkin_ws/src/magni/magni_2dnav/scripts/amcl_last_pose.bag','r')
         for topic, msg, t in bag.read_messages(topics=['amcl_pose']):
+            rospy.loginfo('publishing last bag message: ')
             rospy.loginfo(msg)
             pub.publish(msg)
         bag.close()
