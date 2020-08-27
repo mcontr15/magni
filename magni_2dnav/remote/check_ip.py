@@ -1,17 +1,17 @@
 #!/usr/bin/env python
 import os
 
-nvidia = '10.0.0.17'; johnny_boy = '10.0.0.237'
+nvidia_red = '10.0.0.143'; johnny_red = '10.0.0.141'
 
 while True:
 	os.system('nmap -sn 10.0.0.* > nmap.txt')
 	f = open('nmap.txt', 'r')
 	addresses = f.read()
-	if (nvidia in addresses) and (johnny_boy in addresses):
+	if (nvidia_red in addresses) and (johnny_red in addresses):
 		break 
-	elif nvidia in addresses:
+	elif nvidia_red in addresses:
 		print('Waiting for Magni . . .')
-	elif johnny_boy in addresses:
+	elif johnny_red in addresses:
 		print('Waiting for nvidia . . .')
 	else: 
 		print('Waiting for systems to boot up. . .')
