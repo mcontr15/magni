@@ -13,7 +13,8 @@ def startup():
     #pub = rospy.Publisher('initialpose',PoseWithCovarianceStamped, queue_size=10)
     #rospy.init_node('startup_node', anonymous=True)
     
-    bag = rosbag.Bag('amcl_last_pose.bag','r')
+    bag = rosbag.Bag('/home/nvidia/catkin_ws/src/magni/magni_2dnav/scripts/amcl_last_pose.bag','r')
+
     for topic, msg, t in bag.read_messages(topics=['amcl_pose']):
         #rospy.loginfo(msg)
         print(msg)

@@ -8,6 +8,7 @@
 
  <!-- this launch file only launches nodes anyways -->
  <!-- <include file="$(find magni_2dnav)/launch/pose_tracker.launch" /> -->
+ <node name="goHomeListener" pkg="magni_2dnav" type="goHomeListener.py" cwd="node"  output="screen"/>
 
 </launch> 
 
