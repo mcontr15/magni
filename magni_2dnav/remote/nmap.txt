@@ -1,31 +1,27 @@
 
-Starting Nmap 7.01 ( https://nmap.org ) at 2020-08-24 11:45 PDT
+Starting Nmap 7.01 ( https://nmap.org ) at 2020-08-27 10:09 PDT
 Nmap scan report for Archer.lan (10.0.0.1)
-Host is up (0.0038s latency).
+Host is up (0.0082s latency).
 Nmap scan report for amazon-8e0b5aa37.lan (10.0.0.5)
-Host is up (0.012s latency).
-Nmap scan report for tegra_boy (10.0.0.17)
-Host is up (0.010s latency).
-Nmap scan report for Bipins-iPhone.lan (10.0.0.39)
-Host is up (0.075s latency).
-Nmap scan report for Martin.lan (10.0.0.41)
-Host is up (0.074s latency).
+Host is up (0.016s latency).
 Nmap scan report for Chromecast-Ultra.lan (10.0.0.71)
-Host is up (0.0087s latency).
-Nmap scan report for 10.0.0.117
-Host is up (0.011s latency).
+Host is up (0.0026s latency).
+Nmap scan report for TL-WR802N.lan (10.0.0.117)
+Host is up (0.080s latency).
 Nmap scan report for atlas.lan (10.0.0.118)
-Host is up (0.010s latency).
+Host is up (0.0011s latency).
 Nmap scan report for minotaur (10.0.0.133)
-Host is up (0.00028s latency).
+Host is up (0.000076s latency).
+Nmap scan report for johnny_red (10.0.0.141)
+Host is up (0.061s latency).
 Nmap scan report for tegra_red (10.0.0.143)
-Host is up (0.069s latency).
-Nmap scan report for TL-WR802N.lan (10.0.0.157)
-Host is up (0.014s latency).
+Host is up (0.062s latency).
 Nmap scan report for cronus.lan (10.0.0.221)
-Host is up (0.012s latency).
-Nmap scan report for johnny_boy (10.0.0.237)
-Host is up (0.0030s latency).
+Host is up (0.0028s latency).
+Nmap scan report for HUAWEI_P10-1a851e68313210.lan (10.0.0.228)
+Host is up (0.11s latency).
 Nmap scan report for johnny_red.lan (10.0.0.238)
-Host is up (0.014s latency).
-Nmap done: 256 IP addresses (14 hosts up) scanned in 2.64 seconds
+Host is up (0.0043s latency).
+Nmap scan report for BrianNaosiPhone.lan (10.0.0.246)
+Host is up (0.019s latency).
+Nmap done: 256 IP addresses (12 hosts up) scanned in 2.80 seconds
