@@ -1,13 +1,25 @@
 
-Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-28 12:56 PDT
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-28 16:08 PDT
 Nmap scan report for Archer.lan (10.0.0.1)
-Host is up (0.0040s latency).
+Host is up (0.00041s latency).
+Nmap scan report for amazon-8e0b5aa37.lan (10.0.0.5)
+Host is up (0.0018s latency).
+Nmap scan report for Chromecast-Ultra.lan (10.0.0.71)
+Host is up (0.0027s latency).
 Nmap scan report for TL-WR802N.lan (10.0.0.117)
-Host is up (0.00093s latency).
-Nmap scan report for johnny_red.lan (10.0.0.141)
-Host is up (0.0014s latency).
-Nmap scan report for tegra_red.lan (10.0.0.143)
+Host is up (0.067s latency).
+Nmap scan report for atlas.lan (10.0.0.118)
+Host is up (0.000028s latency).
+Nmap scan report for johnny_red (10.0.0.141)
 Host is up (0.0010s latency).
-Nmap scan report for 10.0.0.238
-Host is up (0.0016s latency).
-Nmap done: 256 IP addresses (5 hosts up) scanned in 2.61 seconds
+Nmap scan report for tegra_red (10.0.0.143)
+Host is up (0.033s latency).
+Nmap scan report for iPhone.lan (10.0.0.189)
+Host is up (0.098s latency).
+Nmap scan report for cronus.lan (10.0.0.221)
+Host is up (0.00022s latency).
+Nmap scan report for HUAWEI_P10-1a851e68313210.lan (10.0.0.228)
+Host is up (0.029s latency).
+Nmap scan report for BrianNaosiPhone.lan (10.0.0.246)
+Host is up (0.066s latency).
+Nmap done: 256 IP addresses (11 hosts up) scanned in 2.41 seconds

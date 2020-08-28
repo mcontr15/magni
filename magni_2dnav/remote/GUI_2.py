@@ -8,7 +8,7 @@ from tkinter import StringVar
 from sensor_msgs.msg import BatteryState
 from nav_msgs.msg import Odometry
 from std_msgs.msg import String
-#from custom_msgs.msg import bat_and_sol
+from custom_msgs.msg import bat_and_sol
 import rospy
 import time
 
@@ -17,13 +17,14 @@ global status_string2
 global callback1_called
 global callback2_called
 
+global zString
 global t
-global current_time
+global current_time_now
 
 class command_publisher:
         def __init__(self):
                 rospy.init_node('StartupGUI2', anonymous=True)
-                self.pub = rospy.Publisher('launch_cmds2',String,queue_size=10)
+                self.pub = rospy.Publisher('launch_cmds',String,queue_size=10)
                 print('initialized launch command_publisher')
                 self.safe_init_sleep_time = 2.0
                 time.sleep(2)
@@ -52,25 +53,31 @@ cp = command_publisher()
  
 
 def updateStatus2(data):
-    global status_string2
-    global callback2_called
-    #print(data)
-    #print("call_back called")
-    status_string2 = str(data)
-    callback2_called = True 
-    sanitation_file = open("sanitation_log_file.txt", "a")
-    sanitation_file.write(status_string2)
-    sanitation_file.close()
+	global status_string2
+	global callback2_called
+	global zString
+	#print(data)
+	#print("call_back called")
+
+	# zones completed is just the first string
+	for word in str(data).split():
+		if word.isdigit():
+			zString = 'Zones Completed: ' + word
+			print('found a digit')
+	status_string2 = current_time_now + str(data) + '\n'
+	callback2_called = True 
+	sanitation_file = open("sanitation_log_file.txt", "a")
+	sanitation_file.write(status_string2)
+	sanitation_file.close()
 
 # launches the sanitation protocol
 def launch_clicked():
         global status_string1
         global callback1_called
-        global current_time
         #lbl1 = Label(window)
         cp.command = 'launch protocol'
         cp.publish_command()
-        status_string1 = current_time + "Cleaning Cycle Initiated \n"
+        status_string1 = current_time_now + "Cleaning Cycle Initiated \n"
         callback1_called = True
         control_file = open("control_log_file.txt", "a")
         control_file.write(status_string1)
@@ -85,7 +92,7 @@ def gohome_clicked():
         global cp
         cp.command = 'go home'
         cp.publish_command()
-        status_string1 = current_time + "Returning to Base Station \n"
+        status_string1 = current_time_now + "Returning to Base Station \n"
         callback1_called = True
         control_file = open("control_log_file.txt", "a")
         control_file.write(status_string1)
@@ -97,7 +104,7 @@ def openMap_clicked():
         global callback1_called
         cp.command = 'open map'
         cp.publish_command()
-        status_string1 = current_time + "Opening Map \n"
+        status_string1 = current_time_now + "Opening Map \n"
         os.system('rviz')
         callback1_called = True
         control_file = open("control_log_file.txt", "a")
@@ -111,7 +118,7 @@ def shutdown_clicked():
         global callback1_called
         cp.command = 'shutdown'
         cp.publish_command()
-        status_string1 = current_time + "Shutdown Initiated \n"
+        status_string1 = current_time_now + "Shutdown Initiated \n"
         callback1_called = True
         control_file = open("control_log_file.txt", "a")
         control_file.write(status_string1)
@@ -150,6 +157,11 @@ tk.Label(window, image= img1).grid(row = 0, column = 0, padx = 5, pady = 5)
 
 #UI Title 
 header_lbl = tk.Label(window, text = "Sanitization Robot", font = ("Comic Sans MS", 75, 'bold'), fg="#ff6d00").grid(column=1,row=0, columnspan = 2, padx = (20,10), pady = (35,10)) 
+
+#UI Title
+zoneString = StringVar()
+zone_lbl = tk.Label(window, textvariable = zoneString, font = ("Comic Sans MS", 20, 'bold'), fg="#ff6d00").grid(column=1,row=6, rowspan = 2, padx = 5, pady = 5)
+zoneString.set('Zones Completed: 0') 
 
 
 #Launch Button
@@ -191,8 +203,8 @@ text_area2.insert(tk.INSERT, status_string2)
 
 callback2_called = False
 
-#sub = rospy.Subscriber('/battery_state', BatteryState, updateStatus1) 
-sub2 = rospy.Subscriber('/odom', Odometry, updateStatus2)
+sub = rospy.Subscriber('/battery_and_solution', bat_and_sol, magniChecking) 
+sub2 = rospy.Subscriber('/spray_status', String, updateStatus2)
 
 
 # Create Labels for Magni Info 
@@ -202,8 +214,7 @@ b_string = ''
 v_string = ''
 p_string = ''
 s_string = ''
-con_string = ''
-san_string = ''
+zString = 'Zones Completed: 0'
 sub_flag = False
 
 #Current Time
@@ -246,14 +257,15 @@ while True:
     
     
     t = time.localtime()
-    current_time = time.strftime("%D-%H:%M:%S --- ",t)
-
+    current_time_now = time.strftime("%D-%H:%M:%S --- ",t)
+  
     if(sub_flag):
             current_time.set(t_string)
             battery_status.set(b_string)
             voltage_level.set(v_string)
             battery_percentage.set(p_string)
             solution_status.set(s_string)
+            zoneString.set(zString)
 
     if callback1_called:
         #print("updating1")

@@ -54,3 +54,70 @@ Returning to Base Station
 08/27/20-19:12:25 --- Returning to Base Station 
 08/27/20-19:12:26 --- Cleaning Cycle Initiated 
 08/27/20-19:12:26 --- Returning to Base Station 
+08/28/20-14:52:07 --- Returning to Base Station 
+08/28/20-14:52:10 --- Cleaning Cycle Initiated 
+08/28/20-14:52:15 --- Cleaning Cycle Initiated 
+08/28/20-14:52:52 --- Cleaning Cycle Initiated 
+08/28/20-14:52:54 --- Cleaning Cycle Initiated 
+08/28/20-14:55:52 --- Cleaning Cycle Initiated 
+08/28/20-14:55:54 --- Cleaning Cycle Initiated 
+08/28/20-14:56:04 --- Cleaning Cycle Initiated 
+08/28/20-14:56:08 --- Cleaning Cycle Initiated 
+08/28/20-14:56:56 --- Cleaning Cycle Initiated 
+08/28/20-14:56:57 --- Cleaning Cycle Initiated 
+08/28/20-14:56:57 --- Cleaning Cycle Initiated 
+08/28/20-14:56:58 --- Cleaning Cycle Initiated 
+08/28/20-14:56:59 --- Cleaning Cycle Initiated 
+08/28/20-14:57:05 --- Cleaning Cycle Initiated 
+08/28/20-14:57:08 --- Cleaning Cycle Initiated 
+08/28/20-14:57:22 --- Cleaning Cycle Initiated 
+08/28/20-14:57:23 --- Cleaning Cycle Initiated 
+08/28/20-14:57:23 --- Cleaning Cycle Initiated 
+08/28/20-14:57:24 --- Cleaning Cycle Initiated 
+08/28/20-14:57:36 --- Cleaning Cycle Initiated 
+08/28/20-14:57:36 --- Cleaning Cycle Initiated 
+08/28/20-14:57:37 --- Cleaning Cycle Initiated 
+08/28/20-14:57:37 --- Cleaning Cycle Initiated 
+08/28/20-14:57:38 --- Cleaning Cycle Initiated 
+08/28/20-14:57:39 --- Returning to Base Station 
+08/28/20-14:58:38 --- Cleaning Cycle Initiated 
+08/28/20-14:58:47 --- Cleaning Cycle Initiated 
+08/28/20-14:58:48 --- Cleaning Cycle Initiated 
+08/28/20-14:58:48 --- Cleaning Cycle Initiated 
+08/28/20-14:58:49 --- Cleaning Cycle Initiated 
+08/28/20-14:58:49 --- Cleaning Cycle Initiated 
+08/28/20-15:01:39 --- Cleaning Cycle Initiated 
+08/28/20-15:01:40 --- Cleaning Cycle Initiated 
+08/28/20-15:01:53 --- Cleaning Cycle Initiated 
+08/28/20-15:01:57 --- Cleaning Cycle Initiated 
+08/28/20-15:05:19 --- Cleaning Cycle Initiated 
+08/28/20-15:05:51 --- Cleaning Cycle Initiated 
+08/28/20-15:05:51 --- Cleaning Cycle Initiated 
+08/28/20-15:05:53 --- Returning to Base Station 
+08/28/20-15:05:55 --- Returning to Base Station 
+08/28/20-15:06:33 --- Returning to Base Station 
+08/28/20-15:06:41 --- Cleaning Cycle Initiated 
+08/28/20-15:08:28 --- Returning to Base Station 
+08/28/20-15:20:00 --- Cleaning Cycle Initiated 
+08/28/20-15:20:21 --- Returning to Base Station 
+08/28/20-15:22:21 --- Cleaning Cycle Initiated 
+08/28/20-15:23:10 --- Returning to Base Station 
+08/28/20-15:23:25 --- Cleaning Cycle Initiated 
+08/28/20-15:23:47 --- Returning to Base Station 
+08/28/20-15:32:43 --- Cleaning Cycle Initiated 
+08/28/20-15:33:04 --- Returning to Base Station 
+08/28/20-15:35:43 --- Cleaning Cycle Initiated 
+08/28/20-15:37:26 --- Returning to Base Station 
+08/28/20-15:37:26 --- Returning to Base Station 
+08/28/20-15:37:50 --- Cleaning Cycle Initiated 
+08/28/20-15:38:24 --- Opening Map 
+08/28/20-15:39:38 --- Returning to Base Station 
+08/28/20-15:39:40 --- Returning to Base Station 
+08/28/20-15:40:05 --- Returning to Base Station 
+08/28/20-15:40:07 --- Returning to Base Station 
+08/28/20-16:04:07 --- Cleaning Cycle Initiated 
+08/28/20-16:05:38 --- Returning to Base Station 
+08/28/20-16:07:17 --- Cleaning Cycle Initiated 
+08/28/20-16:08:43 --- Returning to Base Station 
+08/28/20-16:09:15 --- Returning to Base Station 
+08/28/20-16:09:34 --- Cleaning Cycle Initiated 
