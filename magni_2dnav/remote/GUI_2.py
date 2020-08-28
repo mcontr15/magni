@@ -17,6 +17,9 @@ global status_string2
 global callback1_called
 global callback2_called
 
+global t
+global current_time
+
 class command_publisher:
         def __init__(self):
                 rospy.init_node('StartupGUI2', anonymous=True)
@@ -54,18 +57,27 @@ def updateStatus2(data):
     #print(data)
     #print("call_back called")
     status_string2 = str(data)
-    callback2_called = True    
+    callback2_called = True 
+    sanitation_file = open("sanitation_log_file.txt", "a")
+    sanitation_file.write(status_string2)
+    sanitation_file.close()
 
 # launches the sanitation protocol
 def launch_clicked():
         global status_string1
         global callback1_called
+        global current_time
         #lbl1 = Label(window)
         cp.command = 'launch protocol'
         cp.publish_command()
-        status_string1 = "Cleaning Cycle Initiated \n"
+        status_string1 = current_time + "Cleaning Cycle Initiated \n"
         callback1_called = True
-    
+        control_file = open("control_log_file.txt", "a")
+        control_file.write(status_string1)
+        control_file.close()
+
+
+
 # runs the go home client
 def gohome_clicked():
         global status_string1
@@ -73,8 +85,11 @@ def gohome_clicked():
         global cp
         cp.command = 'go home'
         cp.publish_command()
-        status_string1 = "Returning to Base Station \n"
+        status_string1 = current_time + "Returning to Base Station \n"
         callback1_called = True
+        control_file = open("control_log_file.txt", "a")
+        control_file.write(status_string1)
+        control_file.close()
 
 # Open RVIZ
 def openMap_clicked():
@@ -82,8 +97,13 @@ def openMap_clicked():
         global callback1_called
         cp.command = 'open map'
         cp.publish_command()
-        status_string1 = "Opening Map \n"
+        status_string1 = current_time + "Opening Map \n"
         os.system('rviz')
+        callback1_called = True
+        control_file = open("control_log_file.txt", "a")
+        control_file.write(status_string1)
+        control_file.close()
+
 
 #Shuts down Nvidia and Magni
 def shutdown_clicked():
@@ -91,8 +111,13 @@ def shutdown_clicked():
         global callback1_called
         cp.command = 'shutdown'
         cp.publish_command()
-        status_string1 = "Shutdown Initiated \n"
-        
+        status_string1 = current_time + "Shutdown Initiated \n"
+        callback1_called = True
+        control_file = open("control_log_file.txt", "a")
+        control_file.write(status_string1)
+        control_file.close()
+
+
 def magniChecking(data):
         global t_string
         global b_string
@@ -135,11 +160,11 @@ launch_btn = tk.Button(window, text= "Launch Sanitation Protocol", font = ("Comi
 home_btn = tk.Button(window,text='Return to Base Station',font=("Comic Sans MS",20), command=gohome_clicked,bd=4, bg="#0375be",fg="white").grid(column=1,row=2)
 
 #Map Button
-map_btn = tk.Button(window, text= "Open Map", font = ("Comic Sans MS", 20), command = launch_clicked, bd = 4, bg = "#ff6d00", fg = "white").grid(column=0,row=3)
+map_btn = tk.Button(window, text= "Open Map", font = ("Comic Sans MS", 20), command = openMap_clicked, bd = 4, bg = "#ff6d00", fg = "white").grid(column=0,row=3)
 
 
 #Shutdown Button
-shutdown_btn = tk.Button(window,text='Shutdown Robot',font=("Comic Sans MS",20), command=gohome_clicked,bd=4, bg="red",fg="white").grid(column=1,row=3)
+shutdown_btn = tk.Button(window,text='Shutdown Robot',font=("Comic Sans MS",20), command=shutdown_clicked,bd=4, bg="red",fg="white").grid(column=1,row=3)
 
 
 
@@ -219,6 +244,10 @@ while True:
     window.update_idletasks()
     window.update()
     
+    
+    t = time.localtime()
+    current_time = time.strftime("%D-%H:%M:%S --- ",t)
+
     if(sub_flag):
             current_time.set(t_string)
             battery_status.set(b_string)
