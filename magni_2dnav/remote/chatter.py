@@ -127,7 +127,7 @@ window.title("ICURObot Startup Application")
 
 header_lbl = Label(window, text = "Sanitization Robot")
 header_lbl.config(font=("Comic Sans MS", 75, 'bold'), fg="#ff6d00")
-header_lbl.grid(column=5,row=2, padx = (5,5), pady=(43,1))
+header_lbl.grid(column=5,row=2, padx = (5,5), pady=10)
 
 empty_lbl = Label(window,text = "  ")
 empty_lbl.grid(column=0,row=6, padx = 1, pady = 30, columnspan = 20)
