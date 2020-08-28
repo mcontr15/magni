@@ -10,6 +10,5 @@
        <node machine="$(arg tx2)" name="amcl_pose_tracking_bag" pkg="magni_2dnav" type="amcl_pose_tracking_bag.py" cwd="node"  output="screen"/>
        <node machine="$(arg tx2)" name="goHomeListener" pkg="magni_2dnav" type="goHomeListener.py" cwd="node"  output="screen"/>
 
-
 </launch> 
 

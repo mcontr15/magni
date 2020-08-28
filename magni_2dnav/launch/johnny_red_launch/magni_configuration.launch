@@ -6,7 +6,7 @@
   <node pkg="tf" type="static_transform_publisher" name="front_camera_link" args="0.20 0 0.67 0 0 0 base_link front_camera_link 100" respawn="true"></node>
 
   <!-- begin launch files for sensors -->
-  <include file="$(find magni_2dnav)/johnny_red/launch/start_rplidar.launch"/> 
+  <include file="$(find magni_2dnav)/launch/johnny_red_launch/start_rplidar_JR.launch"/> 
   <include file="$(find realsense2_camera)/launch/multi_pointcloud.launch"/>
   <include file="$(find magni_2dnav)/launch/multi_voxel_filter.launch"/>
 

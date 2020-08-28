@@ -12,6 +12,7 @@ global bag
 def callback(data):
 	global bag
         bag = rosbag.Bag('/home/nvidia/catkin_ws/src/magni/magni_2dnav/scripts/amcl_last_pose.bag','w')
+        bag.reindex()
         rospy.loginfo(data)
         bag.write('amcl_pose',data)
 	bag.close() 

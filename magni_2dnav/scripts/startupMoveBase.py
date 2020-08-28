@@ -22,6 +22,7 @@ def startMoveBase(data):
     #print(str('in moveBase: ' + str(recFlag) + ' ' + str(frontFlag)))
     if recFlag == False and frontFlag:
         #os.system('roslaunch magni_2dnav teb_.launch')
+        print('voxel grid recevied, good to start')
         rospy.loginfo('VOXEL GRIDS HAS BEEN RECEIVED, GOOD TO START')
         os.system('roslaunch magni_2dnav teb_move_base.launch')
         recFlag = True

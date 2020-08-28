@@ -19,7 +19,7 @@ def startSensors(data):
 def startup():
     global recFlag
     recFlag = False
-    rospy.init_node('startupSensors', anonymous=True)
+    rospy.init_node('startupSensorsJB', anonymous=True)
     sub = rospy.Subscriber('odom',Odometry,startSensors)
     # idle around until we get data from the pointcloud
     rospy.spin()

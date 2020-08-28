@@ -1,29 +1,32 @@
 #!/usr/bin/env python
-#cense removeid for brevity
+
 import rospy
 import re
 import sys
 import os
 from nav_msgs.msg import Odometry
+from geometry_msgs.msg import PoseWithCovarianceStamped
 
 global recFlag
-# send initial pose once we have from the topic we want
-
+# start GUI once AMCL pose is ready
 def startSensors(data):
     global recFlag
     if recFlag == False:
-        print('odom received starting sensors')
-        rospy.loginfo('ODOM HAS BEEN RECEIVED, GOOD TO START')
-        os.system('roslaunch magni_2dnav magni_configuration.launch')
+
+        print('ALL SENSORS HAVE BEEN ACTIVATED ON THE ROBOT, ACTIVATING GUI')
+        os.system('rosrun magni_2dnav GUI2.py')
         recFlag = True
 
 def startup():
     global recFlag
     recFlag = False
     rospy.init_node('startupSensors', anonymous=True)
-    sub = rospy.Subscriber('odom',Odometry,startSensors)
+    sub = rospy.Subscriber('amcl_pose',PoseWithCovarianceStamped,startSensors)
     # idle around until we get data from the pointcloud
+    print('waiting for amcl topic')
+
     rospy.spin()
+
 
 if __name__ == '__main__':
     try:
