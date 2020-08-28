@@ -1,0 +1,13 @@
+<launch>
+
+  <!-- DESCRIBE TRANSFORMATIONS -->
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" respawn="true"></node>
+  <node pkg="tf" type="static_transform_publisher" name="back_camera_link" args="-0.20 0 0.348 3.14159 0 0 base_link back_camera_link 100" respawn="true"></node>
+  <node pkg="tf" type="static_transform_publisher" name="front_camera_link" args="0.20 0 0.67 0 0 0 base_link front_camera_link 100" respawn="true"></node>
+
+  <!-- begin launch files for sensors -->
+  <include file="$(find magni_2dnav)/launch/johnny_boy_launch/start_rplidar_JB.launch"/> 
+  <include file="$(find realsense2_camera)/launch/jb_multi_pointcloud.launch"/>
+  <include file="$(find magni_2dnav)/launch/multi_voxel_filter.launch"/>
+
+</launch> 

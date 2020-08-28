@@ -1,0 +1,14 @@
+<launch>
+
+
+ <node name="startupSensors" pkg="magni_2dnav" type="startupSensorsJB.py" output="screen"/>
+ <node name="startupMoveBase" pkg="magni_2dnav" type="startupMoveBase.py" output="screen"/>
+ <node name="startupPoseTracking" pkg="magni_2dnav" type="startupPoseTracking.py" cwd="node"  output="screen"/>
+ <node name="amcl_pose_tracking_bag" pkg="magni_2dnav" type="amcl_pose_tracking_bag.py" cwd="node"  output="screen"/>
+
+ <!-- this launch file only launches nodes anyways -->
+ <!-- <include file="$(find magni_2dnav)/launch/pose_tracker.launch" /> -->
+ <node name="goHomeListener" pkg="magni_2dnav" type="goHomeListener.py" cwd="node"  output="screen"/>
+
+</launch> 
+
