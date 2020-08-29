@@ -121,3 +121,84 @@ Returning to Base Station
 08/28/20-16:08:43 --- Returning to Base Station 
 08/28/20-16:09:15 --- Returning to Base Station 
 08/28/20-16:09:34 --- Cleaning Cycle Initiated 
+08/28/20-18:48:21 --- Shutdown Initiated 
+08/28/20-18:48:23 --- Shutdown Initiated 
+08/28/20-18:48:24 --- Shutdown Initiated 
+08/28/20-18:48:49 --- Shutdown Initiated 
+08/28/20-18:48:49 --- Shutdown Initiated 
+08/28/20-18:48:54 --- Shutdown Initiated 
+08/28/20-18:48:54 --- Shutdown Initiated 
+08/28/20-18:48:55 --- Shutdown Initiated 
+08/28/20-18:50:04 --- Shutdown Initiated 
+08/28/20-18:50:04 --- Shutdown Initiated 
+08/28/20-18:50:05 --- Shutdown Initiated 
+08/28/20-18:50:05 --- Shutdown Initiated 
+08/28/20-18:50:05 --- Shutdown Initiated 
+08/28/20-18:50:06 --- Shutdown Initiated 
+08/28/20-18:50:06 --- Shutdown Initiated 
+08/28/20-18:50:06 --- Shutdown Initiated 
+08/28/20-18:50:06 --- Shutdown Initiated 
+08/28/20-18:50:34 --- Opening Map 
+08/28/20-18:50:34 --- Shutdown Initiated 
+08/28/20-18:51:22 --- Opening Map 
+08/28/20-18:52:12 --- Shutdown Initiated 
+08/28/20-18:52:13 --- Shutdown Initiated 
+08/28/20-18:52:14 --- Shutdown Initiated 
+08/28/20-18:52:14 --- Shutdown Initiated 
+08/28/20-18:52:14 --- Shutdown Initiated 
+08/28/20-18:52:15 --- Shutdown Initiated 
+08/28/20-18:52:16 --- Shutdown Initiated 
+08/28/20-18:52:16 --- Shutdown Initiated 
+08/28/20-18:54:03 --- Shutdown Initiated 
+08/28/20-18:54:04 --- Shutdown Initiated 
+08/28/20-18:54:05 --- Shutdown Initiated 
+08/28/20-18:54:05 --- Shutdown Initiated 
+08/28/20-18:54:05 --- Shutdown Initiated 
+08/28/20-18:54:06 --- Shutdown Initiated 
+08/28/20-18:54:06 --- Shutdown Initiated 
+08/28/20-18:54:06 --- Shutdown Initiated 
+08/28/20-18:54:06 --- Shutdown Initiated 
+08/28/20-18:54:07 --- Shutdown Initiated 
+08/28/20-18:54:07 --- Shutdown Initiated 
+08/28/20-18:54:07 --- Shutdown Initiated 
+08/28/20-18:54:07 --- Shutdown Initiated 
+08/28/20-18:54:07 --- Shutdown Initiated 
+08/28/20-18:54:08 --- Shutdown Initiated 
+08/28/20-18:54:08 --- Shutdown Initiated 
+08/28/20-18:54:08 --- Shutdown Initiated 
+08/28/20-18:54:48 --- Shutdown Initiated 
+08/28/20-18:54:49 --- Shutdown Initiated 
+08/28/20-18:54:53 --- Shutdown Initiated 
+08/28/20-18:54:54 --- Shutdown Initiated 
+08/28/20-18:54:54 --- Shutdown Initiated 
+08/28/20-18:54:54 --- Shutdown Initiated 
+08/28/20-18:54:54 --- Shutdown Initiated 
+08/28/20-18:54:55 --- Shutdown Initiated 
+08/28/20-18:55:59 --- Shutdown Initiated 
+08/28/20-18:55:59 --- Shutdown Initiated 
+08/28/20-18:56:00 --- Shutdown Initiated 
+08/28/20-18:56:01 --- Shutdown Initiated 
+08/28/20-18:56:01 --- Shutdown Initiated 
+08/28/20-18:56:01 --- Shutdown Initiated 
+08/28/20-18:57:09 --- Shutdown Initiated 
+08/28/20-18:57:12 --- Shutdown Initiated 
+08/28/20-18:57:13 --- Shutdown Initiated 
+08/28/20-18:57:13 --- Shutdown Initiated 
+08/28/20-18:58:45 --- Returning to Base Station 
+08/28/20-18:58:45 --- Returning to Base Station 
+08/28/20-19:00:00 --- Returning to Base Station 
+08/28/20-19:00:01 --- Returning to Base Station 
+08/28/20-19:00:01 --- Returning to Base Station 
+08/28/20-19:00:01 --- Returning to Base Station 
+08/28/20-19:00:02 --- Shutdown Initiated 
+08/28/20-19:00:04 --- Returning to Base Station 
+08/28/20-19:00:05 --- Returning to Base Station 
+08/28/20-19:00:05 --- Returning to Base Station 
+08/28/20-19:00:05 --- Returning to Base Station 
+08/28/20-19:00:05 --- Returning to Base Station 
+08/28/20-19:00:06 --- Returning to Base Station 
+08/28/20-19:00:06 --- Shutdown Initiated 
+08/28/20-19:05:14 --- Text Window 1 Cleared 
+08/28/20-19:05:21 --- Text Window 2 Cleared 
+08/28/20-19:05:26 --- Text Window 1 Cleared 
+08/28/20-19:05:31 --- Text Window 2 Cleared 

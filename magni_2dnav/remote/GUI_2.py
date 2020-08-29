@@ -112,13 +112,26 @@ def openMap_clicked():
         control_file.close()
 
 
-#Shuts down Nvidia and Magni
-def shutdown_clicked():
+#Clears text windows 
+def clearwindow_clicked():
         global status_string1
         global callback1_called
-        cp.command = 'shutdown'
+        cp.command = 'Clearing Window 1'
         cp.publish_command()
-        status_string1 = current_time_now + "Shutdown Initiated \n"
+        text_area.delete("1.0",tk.END)
+        status_string1 = current_time_now + "Text Window 1 Cleared \n"
+        callback1_called = True
+        control_file = open("control_log_file.txt", "a")
+        control_file.write(status_string1)
+        control_file.close()
+
+def clearwindow2_clicked():
+        global status_string1
+        global callback1_called
+        cp.command = 'Clearing Window 2'
+        cp.publish_command()
+        text_area2.delete("1.0",tk.END)
+        status_string1 = current_time_now + "Text Window 2 Cleared \n"
         callback1_called = True
         control_file = open("control_log_file.txt", "a")
         control_file.write(status_string1)
@@ -150,7 +163,7 @@ window.title("ICUROBot Application")
 window.geometry('1530x840')
 
 #Icuro Logo 
-img = PhotoImage(file = "ICURO-logo-49-original.png")
+img = PhotoImage(file = "~/catkin_ws/src/magni/magni_2dnav/remote/ICURO-logo-49-original.png")
 img1 = img.subsample(3, 3)
 
 tk.Label(window, image= img1).grid(row = 0, column = 0, padx = 5, pady = 5)
@@ -172,11 +185,14 @@ launch_btn = tk.Button(window, text= "Launch Sanitation Protocol", font = ("Comi
 home_btn = tk.Button(window,text='Return to Base Station',font=("Comic Sans MS",20), command=gohome_clicked,bd=4, bg="#0375be",fg="white").grid(column=1,row=2)
 
 #Map Button
-map_btn = tk.Button(window, text= "Open Map", font = ("Comic Sans MS", 20), command = openMap_clicked, bd = 4, bg = "#ff6d00", fg = "white").grid(column=0,row=3)
+map_btn = tk.Button(window, text= "Open Map", font = ("Comic Sans MS", 20), command = openMap_clicked, bd = 4, bg = "#ff6d00", fg = "white").grid(column=0,row=3, rowspan = 2)
+
+#Clear Button1
+clear_btn = tk.Button(window,text='Clear Control Log',font=("Comic Sans MS",20), command=clearwindow_clicked,bd=4, bg="red",fg="white").grid(column=1,row=3)
 
 
-#Shutdown Button
-shutdown_btn = tk.Button(window,text='Shutdown Robot',font=("Comic Sans MS",20), command=shutdown_clicked,bd=4, bg="red",fg="white").grid(column=1,row=3)
+#Clear Button2
+clear_btn = tk.Button(window,text='Clear Sanitation Log',font=("Comic Sans MS",20), command=clearwindow2_clicked,bd=4, bg="red",fg="white").grid(column=1,row=4)
 
 
 
