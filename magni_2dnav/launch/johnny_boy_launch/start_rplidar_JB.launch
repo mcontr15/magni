@@ -15,7 +15,6 @@
           <param name="angle_compensate"    type="bool"   value="true"/>
        </node>
 
-       <node machine="johnny_boy" name="startupClean" pkg="sanitation_control" type="startupClean.py" output="screen" respawn="true"/>
        <node machine="johnny_boy" name="bat_and_sol" pkg="sanitation_control" type="bat_and_sol_monitor.py" output="screen" respawn="true"/>    
 
 
