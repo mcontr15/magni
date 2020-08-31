@@ -8,7 +8,10 @@
        <node machine="$(arg tx2)" name="startupMoveBase" pkg="magni_2dnav" type="startupMoveBase.py" output="screen"/>
        <node machine="$(arg tx2)" name="startupPoseTracking" pkg="magni_2dnav" type="startupPoseTracking.py" cwd="node"  output="screen"/>
        <node machine="$(arg tx2)" name="amcl_pose_tracking_bag" pkg="magni_2dnav" type="amcl_pose_tracking_bag.py" cwd="node"  output="screen"/>
-       <node machine="$(arg tx2)" name="goHomeListener" pkg="magni_2dnav" type="goHomeListener.py" cwd="node"  output="screen"/>
+       <node machine="$(arg tx2)" name="goHomeListener" pkg="magni_2dnav" type="goHomeListener.py"  output="screen"/>
+       <node machine="$(arg tx2)" name="goal_control" pkg="sanitation_control" type="goal_control.py"  output="screen"/>
+       <node machine="$(arg tx2)" name="send_nav_goals_red" pkg="sanitation_control" type="send_nav_goals_red.py"  output="screen"/>
+
 
 </launch> 
 
