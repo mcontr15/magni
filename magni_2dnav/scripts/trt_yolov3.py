@@ -19,14 +19,32 @@ from utils.camera import add_camera_args, Camera
 from utils.display import open_window, set_display, show_fps
 from utils.visualization import BBoxVisualization
 
-import pyrealsense2 as rs
+
+#import pyrealsense2 as rs
 import numpy as np
 
 import rospy
 from std_msgs.msg import Bool
-
+from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
-bridge = CvBridge()
+class yoloRT():
+    def __init__(self, model, size, vis, conf_th, cat_num):
+        self.model = model
+        self.size = size
+        self.vis = vis
+        self.th = conf_th
+        self.num = cat_num
+        self.bridge = CvBridge()
+        self.yoloRT = TrtYOLOv3(model, (size, size), cat_num)
+        self.pub = rospy.Publisher("people_detection", Image)
+    
+    def detect(self, data):
+        img = self.bridge.imgmsg_to_cv2(data, "bgr8")
+        print('Using bridge!')
+        boxes, confs, clss = self.yoloRT.detect(img, self.th)
+        print(boxes)
+        cv_image = self.vis.draw_bboxes(img, boxes, confs, clss)
+        self.pub.publish(self.bridge.cv2_to_imgmsg(cv_image, "bgr8"))
 
 def camera_config(args):
     front_sn = args[1] # johnny_boy front: 017322070445
@@ -105,13 +123,20 @@ def loop_and_detect(pub, pipeline, trt_yolov3, conf_th, vis):
 def main():
     model = "yolov3-tiny-covid"
     category_num = 5
+    conf_th=0.3
+    input_size = 608
+    cls_dict = get_cls_dict(category_num)
+    vis = BBoxVisualization(cls_dict)
     #args = parse_args()
-
+    detector = yoloRT(model, input_size, vis, conf_th, category_num) 
     pub = rospy.Publisher('people_detection', Bool, queue_size=5)
     rospy.init_node('people_detector', anonymous=True)
-
-    pipeline = camera_config(sys.argv)
-
+    sub = rospy.Subscriber('front_camera/color/image_raw', Image, detector.detect)
+    #pipeline = camera_config(sys.argv)
+    try:
+        rospy.spin()
+    except KeyboardInterrupt:
+        print("Shutting down")
     cls_dict = get_cls_dict(category_num)
     yolo_dim = model.split('-')[-1]
     if 'x' in yolo_dim:
