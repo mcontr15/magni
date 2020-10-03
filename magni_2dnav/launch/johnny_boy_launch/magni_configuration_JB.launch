@@ -10,4 +10,8 @@
   <include file="$(find realsense2_camera)/launch/jb_multi_pointcloud.launch"/>
   <include file="$(find magni_2dnav)/launch/multi_voxel_filter.launch"/>
 
+  <!-- detector --> 
+  <include file="$(find darknet_ros)/launch/magni_yolo.launch"/>
+ 
+
 </launch> 
