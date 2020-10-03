@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 import os
 
-nvidia_red = '10.0.0.143'; johnny_red = '10.0.0.141'
+nvidia_red = '10.0.0.142'; johnny_red = '10.0.0.140'
 
 while True:
 	os.system('nmap -sn 10.0.0.* > nmap.txt')

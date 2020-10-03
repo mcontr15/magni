@@ -1,2 +1,31 @@
 
-Starting Nmap 7.60 ( https://nmap.org ) at 2020-08-31 10:22 PDT
+Starting Nmap 7.60 ( https://nmap.org ) at 2020-09-30 12:24 PDT
+Nmap scan report for _gateway (10.0.0.1)
+Host is up (0.00066s latency).
+Nmap scan report for 10.0.0.5
+Host is up (0.0016s latency).
+Nmap scan report for 10.0.0.10
+Host is up (0.00018s latency).
+Nmap scan report for 10.0.0.71
+Host is up (0.00096s latency).
+Nmap scan report for 10.0.0.116
+Host is up (0.033s latency).
+Nmap scan report for 10.0.0.118
+Host is up (0.00046s latency).
+Nmap scan report for 10.0.0.127
+Host is up (0.051s latency).
+Nmap scan report for 10.0.0.133
+Host is up (0.072s latency).
+Nmap scan report for johnny_red (10.0.0.140)
+Host is up (0.035s latency).
+Nmap scan report for tegra_red (10.0.0.142)
+Host is up (0.0022s latency).
+Nmap scan report for 10.0.0.166
+Host is up (0.0015s latency).
+Nmap scan report for cronus (10.0.0.221)
+Host is up (0.00012s latency).
+Nmap scan report for 10.0.0.236
+Host is up (0.034s latency).
+Nmap scan report for 10.0.0.238
+Host is up (0.038s latency).
+Nmap done: 256 IP addresses (14 hosts up) scanned in 3.18 seconds
